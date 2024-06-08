@@ -34,6 +34,15 @@ public class MusicManager : MonoBehaviour
     {
         isMuted = !isMuted;
         audioSource.mute = isMuted;
+
+        if (isMuted)
+        {
+            UIManager.Instance.ShowSoundOffImage();
+        }
+        else
+        {
+            UIManager.Instance.ShowSoundOnImage();
+        }
     }
 
     private void AdjustVolume(float adjustment)

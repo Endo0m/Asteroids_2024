@@ -11,7 +11,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject leaderbordPanel;
     [SerializeField] private Text livesText;
     [SerializeField] private Text scoreText;
-    [SerializeField] private InputField nameInputField; 
+    [SerializeField] private InputField nameInputField;
+    [SerializeField] private GameObject soundOnImage; 
+    [SerializeField] private GameObject soundOffImage; 
 
     private void Awake()
     {
@@ -81,5 +83,27 @@ public class UIManager : MonoBehaviour
     private void SetFocusOnInputField()
     {
         EventSystem.current.SetSelectedGameObject(nameInputField.gameObject, null);
+    }
+
+    public void ShowSoundOnImage()
+    {
+        soundOnImage.SetActive(true);
+        Invoke(nameof(HideSoundOnImage), .5f);
+    }
+
+    public void HideSoundOnImage()
+    {
+        soundOnImage.SetActive(false);
+    }
+
+    public void ShowSoundOffImage()
+    {
+        soundOffImage.SetActive(true);
+        Invoke(nameof(HideSoundOffImage), 1f);
+    }
+
+    public void HideSoundOffImage()
+    {
+        soundOffImage.SetActive(false);
     }
 }

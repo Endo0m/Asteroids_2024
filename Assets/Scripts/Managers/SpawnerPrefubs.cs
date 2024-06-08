@@ -11,7 +11,7 @@ public class SpawnerPrefubs : MonoBehaviour
     [SerializeField]
     private Vector2 spawnPosMax;
     [SerializeField]
-    private float checkRadius = 1f; // Радиус для проверки перекрытия
+    private float checkRadius = 14f; 
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class SpawnerPrefubs : MonoBehaviour
     {
         int index = Random.Range(0, spawnPrefabs.Length);
         Vector2 spawnPos;
-        int maxAttempts = 10; // Максимальное количество попыток для поиска свободного места
+        int maxAttempts = 20; 
         int attempts = 0;
 
         do
@@ -43,4 +43,5 @@ public class SpawnerPrefubs : MonoBehaviour
             Debug.LogWarning("Не удалось найти свободное место для спавна префаба.");
         }
     }
+
 }
